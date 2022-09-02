@@ -1,0 +1,10 @@
+.pika{
+    margin-top: 20px;
+    width: 150px;
+    height: 180px;
+    border: 1px solid black;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: yellow;
+}

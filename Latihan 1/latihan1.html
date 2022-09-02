@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>Get Pikacu</title>
+</head>
+
+<body>
+    <h1>Get Pikachu</h1>
+    <button id="btnLoad">Get</button>
+    <div class="boxPika" id="box">
+
+    </div>
+
+    <script>
+        const btnLoad = document.getElementById('btnLoad');
+        const box = document.getElementById('box');
+
+        function getPika() {
+            fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+                .then((res) => {
+                    return res.json();
+                })
+                .then((data) => {
+                    console.log(data);
+                    return `<div class="pika">
+            <p><span>${data.id}</span>${data.species.name}</p>
+            <img src="${data.sprites.front_default}" alt="pika">
+            <p>type : ${data.types[0].type.name}</p>
+        </div>`
+                })
+                .then((data) => {
+                    box.innerHTML = data;
+                })
+        }
+        btnLoad.addEventListener('click', getPika);
+    </script>
+</body>
+
+</html>
